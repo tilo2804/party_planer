@@ -1,8 +1,12 @@
 /**
  * 
  */
+package module.befindlichkeit;
+
 /**
  * @author Tilo Ullrich : studium@tilo-ullrich.de
  *
  */
-package module;
+public interface Befindlichkeit {
+
+}
