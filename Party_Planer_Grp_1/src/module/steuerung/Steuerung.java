@@ -9,4 +9,11 @@ package module.steuerung;
  */
 public interface Steuerung {
 
+	/**
+	 * Diese Methode startet die Simulation.
+	 * Dafür werden Positionsdaten der Gäste gelesen,
+	 * die besten Positionen berechnet und die GUI geladen
+	 * und aktualisiert.
+	 */
+	public void starteSimulation();
 }
