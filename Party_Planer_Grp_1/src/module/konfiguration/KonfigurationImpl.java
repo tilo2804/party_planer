@@ -13,7 +13,7 @@ public class KonfigurationImpl implements Konfiguration {
 	 * @see module.konfiguration.Konfiguration#ladeGUI()
 	 */
 	@Override
-	public void ladeGUI() {
+	public void importConfig() {
 		// TODO Auto-generated method stub
 
 	}

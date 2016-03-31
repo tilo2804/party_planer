@@ -8,13 +8,22 @@ package module.darstellung;
  */
 public class DarstellungImpl implements Darstellung {
 
+	
 	/** 
 	 * @see module.darstellung.Darstellung#aktualisiereGUI()
 	 */
 	@Override
 	public void aktualisiereGUI() {
 		// TODO Auto-generated method stub
-
+		
+	}
+	
+	private void ladeDaten() {
+		
+	}
+	
+	private void uebertrageDaten() {
+		
 	}
 
 }
