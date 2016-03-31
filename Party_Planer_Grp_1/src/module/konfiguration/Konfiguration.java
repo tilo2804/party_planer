@@ -26,6 +26,6 @@ public interface Konfiguration {
 	 * Nach der Übertragung aller Konfigurationseinstellungen
 	 * wird die Simulation über die Steuerung gestartet.
 	 */
-	public void ladeGUI();
+	public void importConfig();
 	
 }

@@ -11,11 +11,6 @@ package module.darstellung;
 public interface Darstellung {
 
 	/**
-	 * Diese Methode baut die GUI der Simulation
-	 */
-	public void ladeGUI();
-	
-	/**
 	 * Diese Methode altualisiert die GUI. Dabei werden die
 	 * Positionen der Gäste, Tische und des Raums aktualisiert.
 	 */

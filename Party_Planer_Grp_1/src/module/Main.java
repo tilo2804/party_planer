@@ -5,7 +5,7 @@ import module.datenhaltung.DatenhaltungImpl;
 
 public class Main {
 
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Datenhaltung dh = new DatenhaltungImpl();
 		
