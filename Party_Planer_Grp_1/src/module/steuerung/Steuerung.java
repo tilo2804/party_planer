@@ -15,5 +15,11 @@ public interface Steuerung {
 	 * die besten Positionen berechnet und die GUI geladen
 	 * und aktualisiert.
 	 */
-	public void starteSimulation();
+	public void startSimulation();
+	
+	public void stopSimulation();
+	
+	public void nextStep();
+	
+	public void nextIteration();
 }

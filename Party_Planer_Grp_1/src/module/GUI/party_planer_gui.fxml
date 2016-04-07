@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-	  <tabs>
-	    <Tab text="Untitled Tab 1">
-	      <content>
-	        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-	               <children>
-	                  <Button fx:id="button1" layoutX="175.0" layoutY="222.0" mnemonicParsing="false" onAction="#buttonaktion" text="Button" />
-	               </children></AnchorPane>
-	      </content>
-	    </Tab>
-	    <Tab text="Untitled Tab 2">
-	      <content>
-	        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-	      </content>
-	    </Tab>
-	  </tabs>
-	</TabPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="module.GUI.party_planer_gui_controller">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="buttonStart" layoutX="118.0" layoutY="325.0" mnemonicParsing="false" onAction="#start" text="Start" />
+                        <Button fx:id="buttonPause" layoutX="187.0" layoutY="325.0" mnemonicParsing="false" onAction="#pause" text="Pause" />
+                        <Button fx:id="buttonNextStep" layoutX="250.0" layoutY="325.0" mnemonicParsing="false" onAction="#nextStep" text="Nächster Schritt" />
+                        <Button fx:id="buttonNextIteration" layoutX="368.0" layoutY="325.0" mnemonicParsing="false" onAction="#nextIteration" text="Nächste Iteration" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
