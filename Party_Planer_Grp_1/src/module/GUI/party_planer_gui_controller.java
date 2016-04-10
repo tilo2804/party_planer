@@ -6,18 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.StrokeType;
-import javafx.scene.text.Text;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import module.datenhaltung.Datenhaltung;
 import module.datenhaltung.DatenhaltungImpl;
@@ -71,7 +65,11 @@ public class party_planer_gui_controller {
     };
 
 
-
+    /**
+     * Initialize FXML-Loader and create a new scene
+     * @return Scene Control
+     * @throws Exception
+     */
     protected Scene initScene() throws Exception {
         // create a loader
         FXMLLoader loader = new FXMLLoader(getClass().getResource("party_planer_gui.fxml"));
@@ -85,7 +83,11 @@ public class party_planer_gui_controller {
     }
 
 
-
+    /**
+     * Show created scene
+     * @param primaryStage - Stage Control from start()
+     * @param scene - Scene Control initialized with the method initScene()
+     */
     protected void showScene(Stage primaryStage, Scene scene) {
         primaryStage.setTitle("Party Planer");
         primaryStage.setScene(scene);
@@ -95,51 +97,86 @@ public class party_planer_gui_controller {
     }
 
 
-
+    /**
+     * Set the room size,
+     * add necessary quantity of columns and rows,
+     * fill created cells with empty squares
+     */
     protected void drawSquares() {
         // set the room size
-        zimmerGrid.setMinWidth(roomWidth);
-        zimmerGrid.setMinHeight(roomHeight);
+        zimmerGrid.setMaxWidth(roomWidth);
+        zimmerGrid.setMaxHeight(roomHeight);
+
+        for (int col = 0; col < roomWidth/squareSize; col++) {
+            ColumnConstraints column = new ColumnConstraints(squareSize);
+            zimmerGrid.getColumnConstraints().add(column);
+        }
+
+        for(int i = 0; i < roomHeight/squareSize; i++) {
+            RowConstraints row = new RowConstraints(squareSize);
+            zimmerGrid.getRowConstraints().add(row);
+        }
 
         // add squares to the room
         for (int col = 0; col < roomWidth/squareSize; col++) {
             for (int row = 0; row < roomHeight/squareSize; row++) {
-                Rectangle square = drawOneSquare(Color.TRANSPARENT);
-                // add the square to the GridPain #zimmerGrid
+                Pane square = drawRoomSquare("empty");
                 zimmerGrid.add(square, col, row);
+
             }
         }
     }
 
 
-    protected Rectangle drawOneSquare(Color color) {
-        Rectangle square = new Rectangle(squareSize, squareSize);
-        square.setFill(color);
-        square.setStroke(Color.BLACK);
-        square.setStrokeType(StrokeType.INSIDE);
-        square.setStrokeWidth(1);
+    /**
+     * Create a square for the room with Pane Control
+     * @param squareType - CSS-class
+     * @return Pane with CSS-class
+     */
+    protected Pane drawRoomSquare(String squareType) {
+        Pane square = new Pane();
+        square.getStyleClass().addAll("room-square", "square-"+squareType);
         return square;
     }
 
 
+    /**
+     * Create a letter for the room with Label Control
+     * @param text - text inside the label
+     * @param letterType - CSS-class
+     * @return Label with text and CSS-class
+     */
+    protected Label createRoomLetter(String text, String letterType) {
+        Label letter = new Label(text);
+        letter.getStyleClass().addAll("room-label", "label-"+letterType);
+        return letter;
+    }
 
+
+    /**
+     * Create guests-squares in the room
+     */
     protected void drawGuests() {
         // add the guests to the squares
         for (int i = 0; i < guests.length; i++) {
             // get the current guests's data
-            Text letter = new Text(guests[i][0].toString().substring(0, 1));
             int guestPosX = (int)guests[i][2];
             int guestPosY = (int)guests[i][3];
-            // create a new square with background
-            Rectangle square = drawOneSquare(Color.DODGERBLUE);
+            String guestLetter = guests[i][0].toString().substring(0, 1);
+            // create a new square with background and letter
+            Pane square = drawRoomSquare("guest");
+            Label letter = createRoomLetter(guestLetter, "guest");
             // add to the room the square and the guests's letter
             zimmerGrid.add(square, guestPosX, guestPosY);
             zimmerGrid.add(letter, guestPosX, guestPosY);
-            // align the letter in the center
+            // align the letter in center
             zimmerGrid.setHalignment(letter, HPos.CENTER);
         }
     }
 
+    /**
+     * Add a legend with guests names
+     */
     protected void drawLegend() {
         ObservableList<String> legendItems = FXCollections.observableArrayList();
 
@@ -155,35 +192,24 @@ public class party_planer_gui_controller {
     }
 
 
+    /**
+     * Create table-squares in the room
+     */
     protected void drawTable() {
         // add the table squares
         for (int x = tablePosX; x < tablePosX+tableWidth; x++) {
             for (int y = tablePosY; y < tablePosY+tableHeight; y++)
             {
-                Text letter = new Text("T");
-                // create a new square with background
-                Rectangle square = drawOneSquare(Color.CHOCOLATE);
-
+                // create a new square with background and text
+                Pane square = drawRoomSquare("table");
+                Label letter = createRoomLetter("T", "table");
                 // add to the room the square and the guests's letter
                 zimmerGrid.add(square, x, y);
                 zimmerGrid.add(letter, x, y);
-                // align the letter in the center
+                // align the letter in center
                 zimmerGrid.setHalignment(letter, HPos.CENTER);
             }
         }
-    }
-
-
-    public Node getGridPaneNode(final int row, final int column, GridPane gridPane) {
-        Node result = null;
-        ObservableList<Node> childrens = gridPane.getChildren();
-        for(Node node : childrens) {
-            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
-                result = node;
-                break;
-            }
-        }
-        return result;
     }
 
 

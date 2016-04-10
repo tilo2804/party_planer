@@ -13,7 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@style.css"
+           xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -23,26 +25,40 @@
                         <BorderPane>
 
                             <center>
-                                <GridPane fx:id="zimmerGrid" BorderPane.alignment="CENTER" />
+                                <GridPane fx:id="zimmerGrid" BorderPane.alignment="TOP_CENTER"/>
                             </center>
 
                             <bottom>
                                 <ButtonBar BorderPane.alignment="CENTER_LEFT">
                                     <buttons>
-                                        <Button fx:id="buttonStop" mnemonicParsing="false" onAction="#buttonStopAction" prefHeight="26.0" styleClass="btn-danger,btn-stop,button-with-icon" text="Stopp" ButtonBar.buttonData="LEFT" />
-                                        <Button fx:id="buttonStart" defaultButton="true" minWidth="0.0" mnemonicParsing="false" onAction="#buttonStartAction" prefHeight="26.0" styleClass="btn-success,btn-start,button-with-icon" text="Start" ButtonBar.buttonData="LEFT" />
-                                        <Button fx:id="buttonPause" mnemonicParsing="false" onAction="#buttonPauseAction" prefHeight="26.0" styleClass="btn-default,btn-pause,button-with-icon" text="Pause" ButtonBar.buttonData="LEFT" />
-                                        <Button fx:id="buttonNextStep" mnemonicParsing="false" onAction="#buttonNextStepAction" styleClass="btn-default,btn-next-step,button-with-icon" text="Nächster Schritt" ButtonBar.buttonData="RIGHT" />
-                                        <Button fx:id="buttonNextIteration" mnemonicParsing="false" onAction="#buttonNextIterationAction" prefHeight="26.0" styleClass="btn-default,btn-next-iteration,button-with-icon" text="Nächste Iteration" ButtonBar.buttonData="RIGHT" />
+                                        <Button fx:id="buttonStop" mnemonicParsing="false" onAction="#buttonStopAction"
+                                                prefHeight="26.0" styleClass="btn-danger,btn-stop,button-with-icon"
+                                                text="Stopp" ButtonBar.buttonData="LEFT"/>
+                                        <Button fx:id="buttonStart" defaultButton="true" minWidth="0.0"
+                                                mnemonicParsing="false" onAction="#buttonStartAction" prefHeight="26.0"
+                                                styleClass="btn-success,btn-start,button-with-icon" text="Start"
+                                                ButtonBar.buttonData="LEFT"/>
+                                        <Button fx:id="buttonPause" mnemonicParsing="false"
+                                                onAction="#buttonPauseAction" prefHeight="26.0"
+                                                styleClass="btn-default,btn-pause,button-with-icon" text="Pause"
+                                                ButtonBar.buttonData="LEFT"/>
+                                        <Button fx:id="buttonNextStep" mnemonicParsing="false"
+                                                onAction="#buttonNextStepAction"
+                                                styleClass="btn-default,btn-next-step,button-with-icon"
+                                                text="Nächster Schritt" ButtonBar.buttonData="RIGHT"/>
+                                        <Button fx:id="buttonNextIteration" mnemonicParsing="false"
+                                                onAction="#buttonNextIterationAction" prefHeight="26.0"
+                                                styleClass="btn-default,btn-next-iteration,button-with-icon"
+                                                text="Nächste Iteration" ButtonBar.buttonData="RIGHT"/>
                                     </buttons>
                                     <BorderPane.margin>
-                                        <Insets right="10.0" />
+                                        <Insets right="10.0"/>
                                     </BorderPane.margin>
                                 </ButtonBar>
                             </bottom>
 
                             <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </padding>
 
                             <right>
@@ -50,15 +66,15 @@
                                     <children>
                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Legende:">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                             <VBox.margin>
-                                                <Insets left="10.0" right="10.0" />
+                                                <Insets left="10.0" right="10.0"/>
                                             </VBox.margin>
                                         </Text>
                                         <ListView fx:id="legende" prefWidth="100.0" VBox.vgrow="ALWAYS">
                                             <VBox.margin>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                             </VBox.margin>
                                         </ListView>
                                     </children>
