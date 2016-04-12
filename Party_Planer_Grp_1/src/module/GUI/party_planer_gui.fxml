@@ -1,31 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="module.GUI.party_planer_gui_controller">
-   <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="buttonStart" layoutX="118.0" layoutY="325.0" mnemonicParsing="false" onAction="#start" text="Start" />
-                        <Button fx:id="buttonPause" layoutX="187.0" layoutY="325.0" mnemonicParsing="false" onAction="#pause" text="Pause" />
-                        <Button fx:id="buttonNextStep" layoutX="250.0" layoutY="325.0" mnemonicParsing="false" onAction="#nextStep" text="Nächster Schritt" />
-                        <Button fx:id="buttonNextIteration" layoutX="368.0" layoutY="325.0" mnemonicParsing="false" onAction="#nextIteration" text="Nächste Iteration" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-   </children>
-</Pane>
+<StackPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@style.css"
+           xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+
+                <Tab text="Simulation">
+                    <content>
+                        <BorderPane>
+
+                            <center>
+                                <GridPane fx:id="zimmerGrid" BorderPane.alignment="TOP_CENTER"/>
+                            </center>
+
+                            <bottom>
+                                <ButtonBar BorderPane.alignment="CENTER_LEFT">
+                                    <buttons>
+                                        <Button fx:id="buttonStop" mnemonicParsing="false" onAction="#buttonStopAction"
+                                                prefHeight="26.0" styleClass="btn-danger,btn-stop,button-with-icon"
+                                                text="Stopp" ButtonBar.buttonData="LEFT"/>
+                                        <Button fx:id="buttonStart" defaultButton="true" minWidth="0.0"
+                                                mnemonicParsing="false" onAction="#buttonStartAction" prefHeight="26.0"
+                                                styleClass="btn-success,btn-start,button-with-icon" text="Start"
+                                                ButtonBar.buttonData="LEFT"/>
+                                        <Button fx:id="buttonPause" mnemonicParsing="false"
+                                                onAction="#buttonPauseAction" prefHeight="26.0"
+                                                styleClass="btn-default,btn-pause,button-with-icon" text="Pause"
+                                                ButtonBar.buttonData="LEFT"/>
+                                        <Button fx:id="buttonNextStep" mnemonicParsing="false"
+                                                onAction="#buttonNextStepAction"
+                                                styleClass="btn-default,btn-next-step,button-with-icon"
+                                                text="Nächster Schritt" ButtonBar.buttonData="RIGHT"/>
+                                        <Button fx:id="buttonNextIteration" mnemonicParsing="false"
+                                                onAction="#buttonNextIterationAction" prefHeight="26.0"
+                                                styleClass="btn-default,btn-next-iteration,button-with-icon"
+                                                text="Nächste Iteration" ButtonBar.buttonData="RIGHT"/>
+                                    </buttons>
+                                    <BorderPane.margin>
+                                        <Insets right="10.0"/>
+                                    </BorderPane.margin>
+                                </ButtonBar>
+                            </bottom>
+
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+
+                            <right>
+                                <VBox fx:id="rightBox" prefHeight="-1" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Legende:">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets left="10.0" right="10.0"/>
+                                            </VBox.margin>
+                                        </Text>
+                                        <ListView fx:id="legende" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </VBox.margin>
+                                        </ListView>
+                                    </children>
+                                </VBox>
+                            </right>
+
+                        </BorderPane>
+                    </content>
+
+                </Tab>
+
+                <Tab text="Konfiguration">
+                    <content>
+
+                    </content>
+                </Tab>
+
+
+            </tabs>
+        </TabPane>
+
+    </children>
+</StackPane>
