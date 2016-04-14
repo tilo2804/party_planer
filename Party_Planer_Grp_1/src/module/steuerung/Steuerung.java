@@ -16,6 +16,7 @@ public interface Steuerung {
 	 * und aktualisiert.
 	 */
 	public void startSimulation();
+	//test eee
 	
 	public void stopSimulation();
 	
