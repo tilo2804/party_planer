@@ -91,7 +91,7 @@ public class party_planer_gui_controller {
     protected void showScene(Stage primaryStage, Scene scene) {
         primaryStage.setTitle("Party Planer");
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.centerOnScreen();
         primaryStage.show();
     }
