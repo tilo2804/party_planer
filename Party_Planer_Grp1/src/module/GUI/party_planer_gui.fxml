@@ -20,7 +20,7 @@
         <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
 
-                <Tab text="Simulation">
+                <Tab fx:id="simulationTab" text="Simulation">
                     <content>
                         <BorderPane>
 
@@ -86,7 +86,13 @@
 
                 </Tab>
 
-                <Tab text="Konfiguration">
+                <Tab fx:id="configurationTab" text="Konfiguration">
+                    <content>
+
+                    </content>
+                </Tab>
+
+                <Tab fx:id="disabledTab" text="Disabled Tab">
                     <content>
 
                     </content>

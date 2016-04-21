@@ -8,9 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -32,16 +30,18 @@ public class party_planer_gui_controller {
     @FXML ListView legende;
     @FXML VBox rightBox;
 
-
-    final int width = 900; // Scene width
-    final int height = 700; // Scene height
-    final int centerColumnWidth = 600;
-    final int rightColumnWidth = 290; // minus 10 margin on the right
+    @FXML Tab configurationTab;
+    @FXML Tab disabledTab;
 
     // TODO: get room size from config
     final int roomWidth = 600; // Zimmerlänge
     final int roomHeight = 400; // Zimmerhöhe
     final int squareSize = 40; // Zellgröße
+
+    final int width = roomWidth + 300; // Scene width = room width + legend width
+    final int height = roomHeight + 300; // Scene height = room height + 300 (buttons, etc.)
+    final int centerColumnWidth = roomWidth;
+    final int rightColumnWidth = 290; // legend width minus 10 margin on the right
 
     // TODO: get table from config
     final int tableWidth = 4; // number of squares
@@ -85,6 +85,8 @@ public class party_planer_gui_controller {
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
         primaryStage.centerOnScreen();
+        disabledTab.setDisable(true);
+        disabledTab.setTooltip(new Tooltip("Please load configuration"));
         primaryStage.show();
     }
 
