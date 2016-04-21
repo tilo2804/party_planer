@@ -13,22 +13,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import module.datenhaltung.Datenhaltung;
-import module.datenhaltung.DatenhaltungImpl;
-import module.konfiguration.Konfiguration;
-import module.konfiguration.KonfigurationImpl;
-import module.statistik.Statistik;
-import module.statistik.StatistikImpl;
-import module.steuerung.Steuerung;
-import module.steuerung.SteuerungImpl;
 
 
 public class party_planer_gui_controller {
 
-	Datenhaltung datenhaltung = new DatenhaltungImpl();
-	Steuerung steuerung = new SteuerungImpl(datenhaltung);
-	Konfiguration konfiguration = new KonfigurationImpl(datenhaltung);
-	Statistik statistik = new StatistikImpl(datenhaltung);
+	//Datenhaltung datenhaltung = new DatenhaltungImpl();
+	//Steuerung steuerung = new SteuerungImpl(datenhaltung);
+	//Konfiguration konfiguration = new KonfigurationImpl(datenhaltung);
+	//Statistik statistik = new StatistikImpl(datenhaltung);
 	
 	@FXML Button buttonStart;
 	@FXML Button buttonPause;
@@ -215,27 +207,27 @@ public class party_planer_gui_controller {
 
     @FXML private void buttonStartAction(ActionEvent event) {
         System.out.println("Steuerung Befehl Start");
-        steuerung.startSimulation();
+        //steuerung.startSimulation();
     }
 
     @FXML private void buttonPauseAction(ActionEvent event) {
         System.out.println("Steuerung Befehl Pause");
-        steuerung.stopSimulation();
+        //steuerung.stopSimulation();
     }
 
     @FXML private void buttonStopAction(ActionEvent event) {
         System.out.println("Steuerung Befehl Stopp");
-        steuerung.startSimulation();
+        //steuerung.startSimulation();
     }
 
     @FXML private void buttonNextIterationAction(ActionEvent event) {
         System.out.println("Steuerung Befehl n�chste Iteration");
-        steuerung.nextIteration();
+        //steuerung.nextIteration();
     }
 
     @FXML private void buttonNextStepAction(ActionEvent event) {
         System.out.println("Steuerung Befehl n�chster Schritt");
-        steuerung.nextStep();
+        //steuerung.nextStep();
     }
 
 }
