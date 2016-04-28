@@ -7,7 +7,7 @@ public class Befindlichkeit {
 		
 	}
 	
-	public float getBefindlichkeit(Gast gast, float posX, float posY) {
+	public float getMood(Gast gast, float posX, float posY) {
 //		float abstand;
 //		float befindlichkeit;
 //		for(int i=0;i<Gästeliste.size();i++) {
