@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import module.steuerung.Steuerung;
 
 
 public class party_planer_gui_controller {
@@ -206,30 +207,26 @@ public class party_planer_gui_controller {
         }
     }
 
+    Steuerung steuerung = new Steuerung();
 
     @FXML private void buttonStartAction(ActionEvent event) {
-        System.out.println("Steuerung Befehl Start");
-        //steuerung.startSimulation();
+        steuerung.setState("start");
     }
 
     @FXML private void buttonPauseAction(ActionEvent event) {
-        System.out.println("Steuerung Befehl Pause");
-        //steuerung.stopSimulation();
+        steuerung.setState("pause");
     }
 
     @FXML private void buttonStopAction(ActionEvent event) {
-        System.out.println("Steuerung Befehl Stopp");
-        //steuerung.startSimulation();
+        steuerung.setState("stop");
     }
 
     @FXML private void buttonNextIterationAction(ActionEvent event) {
-        System.out.println("Steuerung Befehl n�chste Iteration");
-        //steuerung.nextIteration();
+        steuerung.setState("nextIteration");
     }
 
     @FXML private void buttonNextStepAction(ActionEvent event) {
-        System.out.println("Steuerung Befehl n�chster Schritt");
-        //steuerung.nextStep();
+        steuerung.setState("nextGuest");
     }
 
 }
