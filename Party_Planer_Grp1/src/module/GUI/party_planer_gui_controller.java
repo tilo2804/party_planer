@@ -57,6 +57,10 @@ public class party_planer_gui_controller {
             { "Willi", "Gewichtheber", 0, 1 }
     };
 
+    public void refresh(){
+    	
+    }
+    
 
     /**
      * Initialize FXML-Loader and create a new scene
